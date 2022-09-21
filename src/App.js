@@ -1,11 +1,16 @@
-import logo from "./logo.svg";
 import "./App.css";
-import Main from "./components/Main/main"
+import Features from "./components/Features/features";
+import Footer from "./components/Footer/footer";
+import Main from "./components/Main/main";
 
 function App() {
-  return <div className="App">
-    <Main/>
-  </div>;
+  return (
+    <div className="App">
+      <Main />
+      <Features />
+      <Footer />
+    </div>
+  );
 }
 
 export default App;

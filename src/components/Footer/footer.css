@@ -45,10 +45,9 @@ body {
 }
 
 .image-dog {
-  width: 59%;
-  position: relative;
+  width: 60%;
+  position: absolute;
   z-index: 1;
-  margin-left: 20%;
 }
 
 /* 2nd Section which contains the styling */
