@@ -28,7 +28,10 @@ function Features() {
 
         <div className="col-lg-4 col-md-12 col-sm-12 col-content feature-element">
           <h3>
-            <i style={{ color: "#ef8172" }} className="fa-solid fa-heart"></i>
+            <i
+              style={{ color: "#ef8172" }}
+              className="fa-solid fa-circle-check"
+            ></i>
             <br />
             Modal3
           </h3>
