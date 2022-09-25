@@ -1,6 +1,11 @@
-import "./features.css";
+import "../../styles.css";
+import { useState } from "react";
+import Modal1 from "../Modal1/modal1";
+import Button from "react-bootstrap/Button";
 
 function Features() {
+  const [modal1Show, setModal1Show] = useState(false);
+
   return (
     <section id="features">
       <div className="row">
@@ -11,7 +16,13 @@ function Features() {
               className="fa-solid fa-circle-check"
             ></i>
             <br />
-            Modal1
+            <Button
+              variant="light"
+              onClick={() => setModal1Show(true)}
+              className="bgColorWhite"
+            >
+              <h3>Modal1</h3>
+            </Button>
           </h3>
         </div>
 
@@ -37,6 +48,8 @@ function Features() {
           </h3>
         </div>
       </div>
+
+      <Modal1 show={modal1Show} onHide={() => setModal1Show(false)} />
     </section>
   );
 }

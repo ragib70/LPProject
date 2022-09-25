@@ -1,4 +1,4 @@
-import "./main.css";
+import "../../styles.css";
 import { useState } from "react";
 import * as Func from "../FunctionCalls/FunctionCall";
 
