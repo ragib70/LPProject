@@ -1,9 +1,27 @@
 import "../../styles.css";
 import { useState } from "react";
-import * as Func from "../FunctionCalls/FunctionCall";
+import { injected } from "../Wallet/connectors";
+import { useWeb3React } from "@web3-react/core";
 
 function Main() {
-  const [ethAddr, setEthAddr] = useState("Wallet Address");
+  const { active, account, library, connector, activate, deactivate } =
+    useWeb3React();
+
+  async function connect() {
+    try {
+      await activate(injected);
+    } catch (ex) {
+      console.log(ex);
+    }
+  }
+
+  async function disconnect() {
+    try {
+      await deactivate(injected);
+    } catch (ex) {
+      console.log(ex);
+    }
+  }
 
   return (
     <section id="title">
@@ -36,7 +54,7 @@ function Main() {
                   className="nav-link"
                   href="#"
                   onClick={() => {
-                    Func.login((Addr) => setEthAddr(Addr));
+                    connect();
                   }}
                 >
                   Login
@@ -47,7 +65,7 @@ function Main() {
                   className="nav-link"
                   href="#"
                   onClick={() => {
-                    Func.logOut(() => setEthAddr("Wallet Address"));
+                    disconnect();
                   }}
                 >
                   Logout
@@ -64,7 +82,7 @@ function Main() {
               className="btn btn-dark btn-lg download-button"
               type="button"
             >
-              {ethAddr}
+              {active ? `Wallet Connected : ${account}` : "Wallet Disconnected"}
             </button>
           </div>
           <div className="col-lg-6">
