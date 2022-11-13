@@ -1,7 +1,7 @@
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useState } from "react";
-import getInputAndPrint from "../components/FunctionCalls/DummyFunctionCall";
+import getInputAndPrint from "../FunctionCalls/DummyFunctionCall";
 
 function Form1() {
   const [formEmail, setFormEmail] = useState("");

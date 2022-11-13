@@ -1,7 +1,7 @@
 import "../../styles.css";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-import Form1 from "../../Form1/form1";
+import Form1 from "../Form1/form1";
 
 function Modal1(props) {
   return (
