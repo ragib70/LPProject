@@ -2,6 +2,8 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useState } from "react";
 import getInputAndPrint from "../FunctionCalls/DummyFunctionCall";
+import deposit from "../../actions/web3/deposits";
+import getTokenAllowance from "../../actions/web3/getTokenAllowance";
 
 function Form1() {
   const [formEmail, setFormEmail] = useState("");
@@ -17,7 +19,7 @@ function Form1() {
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
         <Form.Control
-          type="email"
+          type="text"
           placeholder="Enter email"
           onChange={(e) => {
             setFormEmail(e.target.value);
@@ -31,7 +33,7 @@ function Form1() {
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Password</Form.Label>
         <Form.Control
-          type="password"
+          type="text"
           placeholder="Password"
           onChange={(e) => {
             setFormPassword(e.target.value);
@@ -42,7 +44,10 @@ function Form1() {
       <Button
         variant="primary"
         className="carousel-control-button"
-        onClick={() => getInputAndPrint(formInput)}
+        onClick={async () => {
+          let a = await getTokenAllowance(formEmail, formPassword);
+          console.log(a);
+        }}
       >
         Submit
       </Button>

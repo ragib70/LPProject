@@ -1,6 +1,6 @@
 // import { INetworkSpecifics, ExternalAddresses, AddNetworkParams, SwitchNetworkParams } from '.'
-// import DeployedAddressesMainnet from '../../assets/deployed-mainnet.json'
-// import DeployedABIsMainnet from '../../assets/abis-mainnet.json'
+import DeployedAddressesMainnet from "../../assets/deployed-mainnet.json";
+import DeployedABIsMainnet from "../../assets/abis-mainnet.json";
 import TokenListMainnet from "../../assets/token-list-mainnet.json";
 
 export default class MainnetNetworkSpecifics {
@@ -17,13 +17,11 @@ export default class MainnetNetworkSpecifics {
   }
 
   getDeployedAddresses() {
-    // return DeployedAddressesMainnet
-    return null;
+    return DeployedAddressesMainnet;
   }
 
   getDeployedABIs() {
-    // return DeployedABIsMainnet
-    return null;
+    return DeployedABIsMainnet;
   }
 
   getExternalAddresses() {

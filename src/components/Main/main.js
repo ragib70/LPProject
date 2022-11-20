@@ -2,6 +2,8 @@ import "../../styles.css";
 import { useState } from "react";
 import { injected } from "../Wallet/connectors";
 import { useWeb3React } from "@web3-react/core";
+import { setWeb3, useWalletStore } from "../../stores/walletStore";
+import { initContractsFromWeb3 } from "../../stores/contractStore";
 
 function Main() {
   const { active, account, library, connector, activate, deactivate } =
@@ -10,6 +12,8 @@ function Main() {
   async function connect() {
     try {
       await activate(injected);
+      const web3 = useWalletStore.getState().web3;
+      setWeb3(web3, undefined);
     } catch (ex) {
       console.log(ex);
     }
