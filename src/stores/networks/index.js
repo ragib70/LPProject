@@ -1,6 +1,6 @@
-import MainnetNetworkSpecifics from "./mainnet";
+import PolygonNetworkSpecifics from "./polygonMainnet";
 
-const specifics = [new MainnetNetworkSpecifics()];
+const specifics = [new PolygonNetworkSpecifics()];
 
 export function getNetworkSpecifics() {
   return specifics;
@@ -17,12 +17,12 @@ export function getNetworkSpecificsByNetworkName(networkName) {
 }
 
 if (!process.env.NEXT_PUBLIC_NETWORK) {
-  console.log("WARNING: NEXT_PUBLIC_NETWORK not found. Defaulting to rinkeby");
+  console.log("WARNING: NEXT_PUBLIC_NETWORK not found. Defaulting");
 }
 
 const networkName = process.env.NEXT_PUBLIC_NETWORK
   ? process.env.NEXT_PUBLIC_NETWORK
-  : "mainnet";
+  : "polygonMainnet";
 
 // Gets network based on NEXT_PUBLIC_NETWORK environment variable
 export const NETWORK = getNetworkSpecificsByNetworkName(networkName);
