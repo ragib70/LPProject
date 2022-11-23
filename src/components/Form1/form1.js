@@ -4,6 +4,7 @@ import { useState } from "react";
 import getInputAndPrint from "../FunctionCalls/DummyFunctionCall";
 import deposit from "../../actions/web3/deposits";
 import getTokenAllowance from "../../actions/web3/getTokenAllowance";
+import getBorrowerList from "../../actions/web3/getBorrowerList";
 
 function Form1() {
   const [formEmail, setFormEmail] = useState("");
@@ -19,7 +20,7 @@ function Form1() {
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
         <Form.Control
-          type="text"
+          type="number"
           placeholder="Enter email"
           onChange={(e) => {
             setFormEmail(e.target.value);
@@ -45,7 +46,7 @@ function Form1() {
         variant="primary"
         className="carousel-control-button"
         onClick={async () => {
-          let a = await getTokenAllowance(formEmail, formPassword);
+          let a = await getBorrowerList(formEmail);
           console.log(a);
         }}
       >
