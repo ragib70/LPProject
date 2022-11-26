@@ -1,10 +1,13 @@
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useState } from "react";
-import getInputAndPrint from "../FunctionCalls/DummyFunctionCall";
-import deposit from "../../actions/web3/deposits";
-import getTokenAllowance from "../../actions/web3/getTokenAllowance";
-import getBorrowerList from "../../actions/web3/getBorrowerList";
+import {
+  getBorrowerByID,
+  getLenderByID,
+  getNumOfBorrowers,
+  getNumOfLenders,
+  getPoolFee,
+} from "../../actions/web3/bankiFiContractFunctions.js";
 
 function Form1() {
   const [formEmail, setFormEmail] = useState("");
@@ -46,7 +49,7 @@ function Form1() {
         variant="primary"
         className="carousel-control-button"
         onClick={async () => {
-          let a = await getBorrowerList(formEmail);
+          let a = await getPoolFee();
           console.log(a);
         }}
       >
