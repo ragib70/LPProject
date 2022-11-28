@@ -1,9 +1,9 @@
 import "../../styles.css";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-import Form1 from "../Form1/form1";
+import Form2 from "../Form2/form2";
 
-function Modal1(props) {
+function Modal2(props) {
   return (
     <Modal
       show={props.show}
@@ -16,15 +16,11 @@ function Modal1(props) {
           id="contained-modal-title-vcenter"
           className="card-body-title"
         >
-          {props.modalheader}
+          Match Borrower Lender
         </Modal.Title>
       </Modal.Header>
       <Modal.Body className="card-body-title">
-        <Form1
-          function={props.function}
-          title={props.title}
-          placeholder={props.placeholder}
-        />
+        <Form2 function={props.function} />
       </Modal.Body>
       <Modal.Footer>
         <Button onClick={props.onHide} className="carousel-control-button">
@@ -35,4 +31,4 @@ function Modal1(props) {
   );
 }
 
-export default Modal1;
+export default Modal2;

@@ -105,13 +105,47 @@ function matchBorrowerWithLender(id, uri, timeInMonths) {
     return all41Exchange.methods
       .matchBorrowerLender(
         id,
-        0xf87522907591fd5271583d72ae6ac1e516ccc83c,
+        "0xec88e58fc896477317d66a8286511ba3de5704d5",
         uri,
         timeInMonths
       )
       .send();
   } catch (error) {
     console.error("all41Exchange.methods.matchBorrowerLender failed");
+    return null;
+  }
+}
+
+function depositInstallmentToLender(tokenAddress, id) {
+  // Here the amount should be givrn in WEI which is 10^18 denomination.
+  const all41Exchange = useContractStore.getState().all41ExchangeContract;
+
+  if (!all41Exchange) {
+    console.error(`all41Exchange not set correctly`);
+    return null;
+  }
+
+  try {
+    return all41Exchange.methods.PayInstallment(tokenAddress, id).send();
+  } catch (error) {
+    console.error("all41Exchange.methods.payInstallment failed");
+    return null;
+  }
+}
+
+function checkPositionStatus(id) {
+  // Here the amount should be givrn in WEI which is 10^18 denomination.
+  const all41Exchange = useContractStore.getState().all41ExchangeContract;
+
+  if (!all41Exchange) {
+    console.error(`all41Exchange not set correctly`);
+    return null;
+  }
+
+  try {
+    return all41Exchange.methods.CorrectInstallment(id).send();
+  } catch (error) {
+    console.error("all41Exchange.methods.CorrectInstallment failed");
     return null;
   }
 }
@@ -125,4 +159,6 @@ export {
   depositAmountLender,
   depositAmountBorrower,
   matchBorrowerWithLender,
+  depositInstallmentToLender,
+  checkPositionStatus,
 };

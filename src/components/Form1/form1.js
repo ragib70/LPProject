@@ -23,10 +23,10 @@ function Form1(props) {
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Amount</Form.Label>
+        <Form.Label>{props.title}</Form.Label>
         <Form.Control
           type="number"
-          placeholder="Token Amount"
+          placeholder={props.placeholder}
           onChange={(e) => {
             setFormTokenAmount(e.target.value);
           }}

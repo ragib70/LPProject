@@ -1,9 +1,9 @@
 import "../../styles.css";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-import Form1 from "../Form1/form1";
+import Form3 from "../Form3/form3";
 
-function Modal1(props) {
+function Modal3(props) {
   return (
     <Modal
       show={props.show}
@@ -20,7 +20,7 @@ function Modal1(props) {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body className="card-body-title">
-        <Form1
+        <Form3
           function={props.function}
           title={props.title}
           placeholder={props.placeholder}
@@ -35,4 +35,4 @@ function Modal1(props) {
   );
 }
 
-export default Modal1;
+export default Modal3;
