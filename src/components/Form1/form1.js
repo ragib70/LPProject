@@ -1,46 +1,34 @@
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useState } from "react";
-import {
-  getBorrowerByID,
-  getLenderByID,
-  getNumOfBorrowers,
-  getNumOfLenders,
-  getPoolFee,
-} from "../../actions/web3/bankiFiContractFunctions.js";
 
-function Form1() {
-  const [formEmail, setFormEmail] = useState("");
-  const [formPassword, setFormPassword] = useState("");
-
-  let formInput = {
-    email: formEmail,
-    password: formPassword,
-  };
+function Form1(props) {
+  const [formTokenAddress, setFormTokenAddress] = useState("");
+  const [formTokenAmount, setFormTokenAmount] = useState("");
 
   return (
     <Form>
       <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Email address</Form.Label>
+        <Form.Label>Token Address</Form.Label>
         <Form.Control
-          type="number"
-          placeholder="Enter email"
+          type="text"
+          placeholder="ERC20-Token Address"
           onChange={(e) => {
-            setFormEmail(e.target.value);
+            setFormTokenAddress(e.target.value);
           }}
         />
         <Form.Text className="text-muted">
-          We'll never share your email with anyone else.
+          Deposit amount in stable token.
         </Form.Text>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Password</Form.Label>
+        <Form.Label>Amount</Form.Label>
         <Form.Control
-          type="text"
-          placeholder="Password"
+          type="number"
+          placeholder="Token Amount"
           onChange={(e) => {
-            setFormPassword(e.target.value);
+            setFormTokenAmount(e.target.value);
           }}
         />
       </Form.Group>
@@ -48,12 +36,11 @@ function Form1() {
       <Button
         variant="primary"
         className="carousel-control-button"
-        onClick={async () => {
-          let a = await getPoolFee();
-          console.log(a);
+        onClick={() => {
+          props.function(formTokenAddress, formTokenAmount);
         }}
       >
-        Submit
+        Deposit
       </Button>
     </Form>
   );

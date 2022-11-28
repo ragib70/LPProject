@@ -6,7 +6,7 @@ import Form1 from "../Form1/form1";
 function Modal1(props) {
   return (
     <Modal
-      {...props}
+      show={props.show}
       size="lg"
       aria-labelledby="contained-modal-title-vcenter"
       centered
@@ -16,12 +16,11 @@ function Modal1(props) {
           id="contained-modal-title-vcenter"
           className="card-body-title"
         >
-          Modal heading
+          {props.modalheader}
         </Modal.Title>
       </Modal.Header>
       <Modal.Body className="card-body-title">
-        <h4 className="card-body-title">Centered Modal</h4>
-        <Form1 />
+        <Form1 function={props.function} />
       </Modal.Body>
       <Modal.Footer>
         <Button onClick={props.onHide} className="carousel-control-button">
